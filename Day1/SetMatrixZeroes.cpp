@@ -33,3 +33,39 @@ public:
         return;
     }
 };
+
+
+/*Approach
+1. Using additional space
+2. Use dummy row and column to set value to 0 
+3. Iterate again over the matrix and use dummy row and column to mark values 0.
+*/
+
+
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int m=matrix.size();
+        int n=matrix[0].size();
+        
+        vector<bool> rows(m),columns(n);
+        
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(matrix[i][j]==0){
+                    rows[i]=1;
+                    columns[j]=1;
+                }
+            }
+        }
+        
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(rows[i]==1 or columns[j]==1){
+                    matrix[i][j]=0;
+                }
+            }
+        }
+        return;
+    }
+};
