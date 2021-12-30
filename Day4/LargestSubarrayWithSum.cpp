@@ -18,6 +18,13 @@ After traversing the entire array our max variable has the length of longest sub
 */
 
 
+/*
+Example:- {15,-2,2,-8,1,7,10,23}
+
+
+*/
+
+
 class Solution{
     public:
     int maxLen(vector<int>&A, int n)
