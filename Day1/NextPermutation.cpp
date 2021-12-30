@@ -3,6 +3,7 @@
 2. Find the index till when a[i]>a[index1]=index2
 3.Swap index1,index2
 4. Reverse from index+1 till the end of array
+5. Eg=> 13542 --> 14235
 */
 
 
