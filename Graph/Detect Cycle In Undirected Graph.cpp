@@ -53,27 +53,28 @@ class Solution {
 public:
 
 
-    bool check(int src ,vector<int> adj[],vector<int>&vis,int parent){
-        vis[src]=true;
-        
-        for(auto x: adj[src]){
-            if(!vis[x]){
-                if(check(x,adj,vis,src)) return true;
-            }else{
-                if(x!=parent) return true;
+    bool dfs(int src,vector<int>adj[],vector<bool>&vis,int parent){
+        vis[src]=1;
+        for(auto x:adj[src]){
+            if(!vis[x] ){
+                if(dfs(x,adj,vis,src)) return true;
+            }else if(x!=parent){
+                return true;
             }
         }
         return false;
     }
-	bool isCycle(int V, vector<int>adj[]){
-	    vector<int> vis(V);
-	    
-	    for(int i=0;i<V;i++){
-	        if(!vis[i] and check(i,adj,vis,-1)) return true;
-	    }
-	    
-	    return false;
-	}
+    bool isCycle(int V, vector<int> adj[]) {
+        // Code here
+        vector<bool>vis(V);
+        for(int i=0;i<V;i++){
+            if(!vis[i] and dfs(i,adj,vis,-1)){
+                return true;
+            }
+        }
+       
+        return false;
+    }
 };
 
 
